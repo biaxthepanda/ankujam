@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
 
     public enum Sounds 
     {
-        
+        EnemyExplosion = 0,
     
     
     }
