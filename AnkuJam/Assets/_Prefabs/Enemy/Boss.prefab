@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   Health: 0
+  SR: {fileID: 3897880456926293555}
   CharacterAnimator: {fileID: 0}
 --- !u!114 &1768925871100049372
 MonoBehaviour:

@@ -22,6 +22,7 @@ public class ParticleManager : MonoBehaviour
     #endregion
 
     public ParticleSystem BubbleParticle;
+    public GameObject ExplosionParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +40,11 @@ public class ParticleManager : MonoBehaviour
     {
         Instantiate(particleSystem, Loc, Quaternion.identity);
         
+    }
+
+    public void SpawnParticleObjectAtLocation(GameObject particleSystem, Vector2 Loc)
+    {
+        Instantiate(particleSystem, Loc, Quaternion.identity);
+
     }
 }

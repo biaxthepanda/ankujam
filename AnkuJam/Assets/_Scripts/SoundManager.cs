@@ -50,11 +50,12 @@ public class SoundManager : MonoBehaviour
         damage = 21,
         deepFatality = 22,
         doorClose = 23,
+        explosiveBip= 24,
 
 
     }
 
-    void PlayerOneShot(Sounds sound) 
+    public void PlayOneShot(Sounds sound) 
     {
         AudSrc.PlayOneShot(AudioClips[(int)sound]);
     }

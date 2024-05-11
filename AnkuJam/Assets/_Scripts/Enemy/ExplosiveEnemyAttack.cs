@@ -8,6 +8,7 @@ public class ExplosiveEnemyAttack : EnemyAttack
     public bool IsAttacked;
     public float ExplosiveRange;
     public float ExplosiveDelay;
+    public GameObject DangerZone;
     
 
 
@@ -16,19 +17,24 @@ public class ExplosiveEnemyAttack : EnemyAttack
         if (!IsAttacked) 
         {
             GetComponent<EnemyMovement>().ShouldMoveToPlayer = false;
+            SoundManager.Instance.PlayOneShot(SoundManager.Sounds.explosiveBip);
             IsAttacked = true;
+            DangerZone.SetActive(true);
             Invoke("Explode",ExplosiveDelay);
         }
     }
 
     private void Explode() 
     {
-        
+
+        ParticleManager.Instance.SpawnParticleObjectAtLocation(ParticleManager.Instance.ExplosionParticle, transform.position);
         Collider2D hit = Physics2D.OverlapCircle(transform.position,ExplosiveRange,AttackLayerMask);
-        if(hit.transform.TryGetComponent<IDamageable>(out IDamageable hitObject)) 
+        SoundManager.Instance.PlayOneShot(SoundManager.Sounds.explosionJellyfish);
+        if(hit && hit.transform.TryGetComponent<IDamageable>(out IDamageable hitObject)) 
         {
             hitObject.GetDamage(Damage);
         }
+        Destroy(gameObject);
     }
     private void OnDrawGizmos()
     {
