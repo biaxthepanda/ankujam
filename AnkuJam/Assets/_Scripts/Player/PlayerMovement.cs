@@ -10,8 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     private Vector2 _movement;
     public Vector2 LastMovement;
-    public float LastHorizontalMovement;
+    public float LastHorizontalMovement = 1;
 
+    public SpriteRenderer SR;
+    public Animator PlayerAnimator;
+
+
+    public AudioSource SwimmingAudSrc;
 
 
     void Start()
@@ -23,10 +28,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         _movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if (_movement.magnitude != 0)
-            LastMovement = _movement.normalized;
-        if (_movement.x != 0)
+        IsMovementChanged(_movement,LastMovement);
+        //if (_movement.magnitude != 0)
+            LastMovement = _movement;
+        if (_movement.x != 0) 
+        {
             LastHorizontalMovement = _movement.normalized.x;
+            SR.flipX = LastHorizontalMovement > 0 ? false : true;
+        }
+            
+        PlayerAnimator.SetFloat("Speed",_rb.velocity.magnitude);
         Debug.DrawLine(transform.position,transform.position+new Vector3(LastMovement.x,LastMovement.y,0));
     }
 
@@ -40,5 +51,20 @@ public class PlayerMovement : MonoBehaviour
     {
             
     
+    }
+
+    private void IsMovementChanged(Vector2 movement,Vector2 lastMovement) 
+    {
+        if(movement.magnitude == 0 && lastMovement.magnitude != 0) 
+        {
+            SwimmingAudSrc.Stop();
+            Debug.Log("StopSwimming");
+        
+        }
+        else if(movement.magnitude != 0 && lastMovement.magnitude == 0) 
+        {
+            SwimmingAudSrc.Play();
+            Debug.Log("PlaySwimming");
+        }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour,IDamageable
 {
+    public float MaxHealth;
     public float Health; 
 
 
@@ -21,4 +22,11 @@ public class Character : MonoBehaviour,IDamageable
     private void Attack() 
     {
     }
+
+    public virtual void GetDamage(int damage)
+    {
+       
+    }
+
+    public virtual void Die() { }
 }

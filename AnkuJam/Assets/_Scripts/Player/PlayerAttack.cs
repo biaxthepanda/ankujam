@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _attackCoolDown;
     private float _attackTimer;
     [SerializeField] private float _attackRange;
-    [SerializeField] private float _damage;
+    [SerializeField] private int _damage;
 
     //RANGED
     [SerializeField] private Rigidbody2D _projectile;
@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
 
 
     [SerializeField] private LayerMask _attackLayer;
-
+    [SerializeField] private float _meleeAttackForce;
 
     private Vector2 _attackDirection { get { return new Vector2(_movement.LastHorizontalMovement, 0) ; } set { } }
 
@@ -59,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
     {
         Debug.Log("auuuu");
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, _attackDirection,_attackRange,_attackLayer);
-        Collider2D[] hits = Physics2D.OverlapBoxAll( transform.position+ new Vector3(_attackDirection.x,0,0), new Vector2(1,2),0f,_attackLayer);
+        Collider2D[] hits = Physics2D.OverlapBoxAll( transform.position + new Vector3(_attackDirection.x*2,0,0), new Vector2(3f,4),0f,_attackLayer);
         
         //Debug.DrawLine(transform.position,transform.position+new Vector3(_attackDirection.x,_attackDirection.y,0)*_attackRange);
         //if (hit) 
@@ -78,7 +78,10 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent<IDamageable>(out IDamageable hitObject))
                 {
+                    Debug.Log("Damaged");
+                    hit.GetComponent<Rigidbody2D>().AddForce((hit.transform.position - transform.position).normalized * _meleeAttackForce);
                     hitObject.GetDamage(_damage);
+                    
                 }
             }
         }
@@ -93,6 +96,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(transform.position + new Vector3(_attackDirection.x, 0, 0), new Vector2(1, 2));
+        Gizmos.DrawCube(transform.position + new Vector3(_attackDirection.x*2, 0, 0), new Vector2(3f, 4));
     }
 }

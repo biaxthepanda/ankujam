@@ -16,4 +16,9 @@ public class Player : Character
     {
         
     }
+    public override void GetDamage(int damage)
+    {
+        Debug.Log("Player Got Damage");
+        base.GetDamage(damage);
+    }
 }
