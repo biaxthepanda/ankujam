@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.39, y: 3.48, z: 0}
-  m_LocalScale: {x: 1.6859, y: 1.6859, z: 1.6859}
+  m_LocalScale: {x: 2.4964807, y: 2.4964807, z: 2.4964807}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  StartFollowingRange: 10
+  StartFollowingRange: 20
   RB: {fileID: 3227527988679007160}
   Speed: 2
   ShouldMoveToPlayer: 1
@@ -186,6 +186,7 @@ MonoBehaviour:
   Health: 100
   SR: {fileID: 2898718372500602669}
   CharacterAnimator: {fileID: 3562086417607326682}
+  EnemyAtt: {fileID: 0}
 --- !u!114 &2633871675209842163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,16 +199,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b64461ed1e0b1479fffdaceea8384c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 5
+  AttackRange: 10
   Target: {fileID: 0}
   AttackLayerMask:
     serializedVersion: 2
     m_Bits: 64
   AttackCoolDown: 3
   AttackTimer: 0
-  EnemyChar: {fileID: 0}
+  EnemyChar: {fileID: 670472600844697549}
   Projectile: {fileID: 3047687754931394232, guid: 315770c926b02d547870f2216588ea3b, type: 3}
-  ProjectileSpeed: 80
+  ProjectileSpeed: 60
 --- !u!95 &3562086417607326682
 Animator:
   serializedVersion: 5

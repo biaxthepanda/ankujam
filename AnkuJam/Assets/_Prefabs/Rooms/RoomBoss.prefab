@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7924098220299767321}
   - component: {fileID: 5461881422232334647}
   m_Layer: 0
-  m_Name: RoomPrefab
+  m_Name: RoomBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,28 +226,7 @@ MonoBehaviour:
   Enemies: {fileID: 3977283299459585742}
   Waves:
   - prefabs:
-    - {fileID: 4183544810730826368, guid: 4a70e909c28c6244f961a7a4eb90a653, type: 3}
-    - {fileID: 8043564688731782061, guid: 7884633fe4a4e0b45a5e4681ca8fdfd9, type: 3}
-    - {fileID: 484021294773846568, guid: 4d76d3970a6aafe458a7fbbdcde370d6, type: 3}
-    locations:
-    - {fileID: 6135895504825948467}
-    - {fileID: 7184334456095483867}
-    - {fileID: 5377209200461274288}
-    - {fileID: 1089851587538199089}
-    CoolDown: 0
-  - prefabs:
-    - {fileID: 4183544810730826368, guid: 4a70e909c28c6244f961a7a4eb90a653, type: 3}
-    - {fileID: 8043564688731782061, guid: 7884633fe4a4e0b45a5e4681ca8fdfd9, type: 3}
-    - {fileID: 484021294773846568, guid: 4d76d3970a6aafe458a7fbbdcde370d6, type: 3}
-    locations:
-    - {fileID: 6135895504825948467}
-    - {fileID: 7184334456095483867}
-    - {fileID: 5377209200461274288}
-    - {fileID: 1089851587538199089}
-    CoolDown: 0
-  - prefabs:
-    - {fileID: 4183544810730826368, guid: 4a70e909c28c6244f961a7a4eb90a653, type: 3}
-    - {fileID: 8043564688731782061, guid: 7884633fe4a4e0b45a5e4681ca8fdfd9, type: 3}
+    - {fileID: 5439922607859159614, guid: ed1bccdc0d990024dbd4460cba53594b, type: 3}
     locations:
     - {fileID: 6135895504825948467}
     - {fileID: 7184334456095483867}

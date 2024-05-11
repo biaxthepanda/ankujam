@@ -42,7 +42,7 @@ public class BossAttack : MonoBehaviour
         Target = LevelManager.Player.transform;
         _meleeDamage = DefaultMeleeDamage;
         State = BossStates.Ranged;
-        RandomRangeAttack();
+        MeleeAttack();
     }
 
     // Update is called once per frame

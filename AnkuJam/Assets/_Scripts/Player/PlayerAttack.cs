@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private float _attackTimer;
     [SerializeField] private float _attackRange;
     [SerializeField] private int _damage;
+    public GameObject SlashEffect;
 
     //RANGED
     [SerializeField] private Rigidbody2D _projectile;
@@ -70,12 +71,15 @@ public class PlayerAttack : MonoBehaviour
         Collider2D[] hits = Physics2D.OverlapBoxAll( transform.position + new Vector3(_attackDirection.x*2,0,0), new Vector2(2f,4),0f,_attackLayer);
         SoundManager.Instance.PlayOneShot(SoundManager.Sounds.gillWater);
         PlayerChar.CharacterAnimator.SetTrigger("Melee");
+
+        float slashDirection = GetComponent<PlayerMovement>().SR.flipX ? 180 : 0;
+        Instantiate(SlashEffect, transform.position + new Vector3(_attackDirection.x * 2, 0, 0), Quaternion.Euler(0,0, slashDirection));
         if(hits.Length != 0) 
         {
             ParticleManager.Instance.SpawnParticleAtLocation(ParticleManager.Instance.BubbleParticle, hits[0].transform.position);
             
             Debug.Log("Player hit something");
-            DOVirtual.DelayedCall(0.28f, () => 
+            DOVirtual.DelayedCall(0.01f, () => 
             {
                 foreach (var hit in hits)
                 {

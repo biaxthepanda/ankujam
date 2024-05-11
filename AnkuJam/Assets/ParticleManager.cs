@@ -23,6 +23,7 @@ public class ParticleManager : MonoBehaviour
 
     public ParticleSystem BubbleParticle;
     public GameObject ExplosionParticle;
+    public GameObject DeathDustParticle;
 
     // Start is called before the first frame update
     void Start()

@@ -53,8 +53,9 @@ public class EnemyCharacter : Character,IDamageable
     public override void Die()
     {
         base.Die();
+        ParticleManager.Instance.SpawnParticleObjectAtLocation(ParticleManager.Instance.DeathDustParticle,transform.position);
         OnEnemyDied?.Invoke();
-        Invoke("DestroyEnemy", 1f);
+        DestroyEnemy();
     }
 
     public void DestroyEnemy() 
