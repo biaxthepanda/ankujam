@@ -21,6 +21,7 @@ public class PlayerCharacter : Character
     public override void GetDamage(int damage)
     {
         Debug.Log("Player Got Damage");
+        LevelManager.Instance.CamShake.ShakeCamera(3,0.1f);
         base.GetDamage(damage);
     }
 

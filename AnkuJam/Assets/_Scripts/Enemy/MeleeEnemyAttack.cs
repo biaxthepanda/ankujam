@@ -12,6 +12,7 @@ public class MeleeEnemyAttack : EnemyAttack
     {
         if(AttackTimer < 0) 
         {
+            EnemyChar.CharacterAnimator.SetTrigger("Attack");
             Debug.Log("Enemy Melee Attacked");
             RaycastHit2D hit = Physics2D.Raycast(transform.position, (Target.position - transform.position).normalized, AttackRange, AttackLayerMask);
 
