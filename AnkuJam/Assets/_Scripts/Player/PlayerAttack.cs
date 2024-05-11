@@ -25,6 +25,8 @@ public class PlayerAttack : MonoBehaviour
 
     private Vector2 _attackDirection { get { return new Vector2(_movement.LastHorizontalMovement, 0) ; } set { } }
 
+    public PlayerCharacter PlayerChar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,17 +62,8 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("auuuu");
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, _attackDirection,_attackRange,_attackLayer);
         Collider2D[] hits = Physics2D.OverlapBoxAll( transform.position + new Vector3(_attackDirection.x*2,0,0), new Vector2(3f,4),0f,_attackLayer);
-        
-        //Debug.DrawLine(transform.position,transform.position+new Vector3(_attackDirection.x,_attackDirection.y,0)*_attackRange);
-        //if (hit) 
-        //{
-        //    Debug.Log("fýenoenp");
-        //    if (hit.transform.TryGetComponent<IDamageable>(out IDamageable hitObject)) 
-        //    {
-        //        hitObject.GetDamage(_damage);
-        //    }
-        
-        //}
+
+        PlayerChar.CharacterAnimator.SetTrigger("Melee");
         if(hits.Length != 0) 
         {
             Debug.Log("Player hit something");
@@ -90,12 +83,13 @@ public class PlayerAttack : MonoBehaviour
 
     void RangedAttack(Vector3 attackLocation) 
     {
+        PlayerChar.CharacterAnimator.SetTrigger("Ranged");
         Rigidbody2D rb = Instantiate(_projectile,transform.position,Quaternion.identity);
         rb.AddForce((attackLocation-transform.position)*_projectileSpeed);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(transform.position + new Vector3(_attackDirection.x*2, 0, 0), new Vector2(3f, 4));
+        //Gizmos.DrawCube(transform.position + new Vector3(_attackDirection.x*2, 0, 0), new Vector2(3f, 4));
     }
 }

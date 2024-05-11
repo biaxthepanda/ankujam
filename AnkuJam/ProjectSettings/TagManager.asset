@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ForeGround
+    uniqueID: 2539295351
+    locked: 0
+  - name: PlayerEnemies
+    uniqueID: 2543500681
+    locked: 0
