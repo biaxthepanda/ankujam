@@ -167,7 +167,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   StartFollowingRange: 10
   RB: {fileID: 3609861502019602661}
-  Speed: 2
+  Speed: 3.5
   ShouldMoveToPlayer: 1
   AttackEnemy: {fileID: 8315335649551775716}
 --- !u!114 &5536603940714329388
@@ -182,9 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8b3da98a326bc4690da149a304d969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
+  MaxHealth: 100
   Health: 100
+  SR: {fileID: 80506532958740766}
   CharacterAnimator: {fileID: 6352980352337936443}
+  EnemyAtt: {fileID: 0}
 --- !u!114 &8315335649551775716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +207,7 @@ MonoBehaviour:
   AttackCoolDown: 2
   AttackTimer: 0
   EnemyChar: {fileID: 5536603940714329388}
-  Damage: 50
+  Damage: 15
 --- !u!95 &6352980352337936443
 Animator:
   serializedVersion: 5

@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _projectileSpeed;
     [SerializeField] private float _rangedAttackCoolDown;
     private float _rangedAttackTimer;
+    public Image RangedCooldownImage;
 
 
     [SerializeField] private PlayerMovement _movement;
@@ -54,6 +57,8 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
+        RangedCooldownImage.fillAmount = (_rangedAttackCoolDown - Mathf.Clamp(_rangedAttackTimer,0,_rangedAttackCoolDown+0.1f)) / _rangedAttackCoolDown;
+
         _attackTimer -= Time.deltaTime;
         _rangedAttackTimer -= Time.deltaTime;
     }
@@ -63,30 +68,36 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("auuuu");
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, _attackDirection,_attackRange,_attackLayer);
         Collider2D[] hits = Physics2D.OverlapBoxAll( transform.position + new Vector3(_attackDirection.x*2,0,0), new Vector2(2f,4),0f,_attackLayer);
-        SoundManager.Instance.PlayerOneShot(SoundManager.Sounds.gillWater);
+        SoundManager.Instance.PlayOneShot(SoundManager.Sounds.gillWater);
         PlayerChar.CharacterAnimator.SetTrigger("Melee");
         if(hits.Length != 0) 
         {
             ParticleManager.Instance.SpawnParticleAtLocation(ParticleManager.Instance.BubbleParticle, hits[0].transform.position);
+            
             Debug.Log("Player hit something");
-            foreach(var hit in hits) 
+            DOVirtual.DelayedCall(0.28f, () => 
             {
-                if (hit.transform.TryGetComponent<IDamageable>(out IDamageable hitObject))
+                foreach (var hit in hits)
                 {
-                    Debug.Log("Damaged");
-                    hit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    hit.GetComponent<Rigidbody2D>().AddForce((hit.transform.position - transform.position).normalized * _meleeAttackForce);
-                    hitObject.GetDamage(_damage);
-                    
+                    if (hit.transform.TryGetComponent<IDamageable>(out IDamageable hitObject))
+                    {
+                        Debug.Log("Damaged");
+                        hit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                        hit.GetComponent<Rigidbody2D>().AddForce((hit.transform.position - transform.position).normalized * _meleeAttackForce);
+                        hitObject.GetDamage(_damage);
+
+                    }
                 }
             }
+            );
+            
         }
     
     }
 
     void RangedAttack(Vector3 attackLocation) 
     {
-        SoundManager.Instance.PlayerOneShot(SoundManager.Sounds.Gunshot);
+        SoundManager.Instance.PlayOneShot(SoundManager.Sounds.Gunshot);
 
         PlayerChar.CharacterAnimator.SetTrigger("Ranged");
         Rigidbody2D rb = Instantiate(_projectile,transform.position,Quaternion.identity);

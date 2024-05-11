@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 0
   Health: 100
+  SR: {fileID: 2898718372500602669}
   CharacterAnimator: {fileID: 3562086417607326682}
 --- !u!114 &2633871675209842163
 MonoBehaviour:
@@ -206,7 +207,7 @@ MonoBehaviour:
   AttackTimer: 0
   EnemyChar: {fileID: 0}
   Projectile: {fileID: 3047687754931394232, guid: 315770c926b02d547870f2216588ea3b, type: 3}
-  ProjectileSpeed: 60
+  ProjectileSpeed: 80
 --- !u!95 &3562086417607326682
 Animator:
   serializedVersion: 5
