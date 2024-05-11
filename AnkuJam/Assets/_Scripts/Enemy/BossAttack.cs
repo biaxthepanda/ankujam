@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter : Character
+public class BossAttack : MonoBehaviour
 {
-
-
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -15,10 +14,5 @@ public class PlayerCharacter : Character
     void Update()
     {
         
-    }
-    public override void GetDamage(int damage)
-    {
-        Debug.Log("Player Got Damage");
-        base.GetDamage(damage);
     }
 }

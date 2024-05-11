@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 {
     #region Singleton
     public static SoundManager Instance { get; private set; }
+    public AudioSource AudSrc;
 
     private void Awake()
     {
@@ -48,6 +49,9 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    
+    void PlayerOneShot(Sounds sound) 
+    {
+        AudSrc.PlayOneShot(AudioClips[(int)sound]);
+    }
 
 }
