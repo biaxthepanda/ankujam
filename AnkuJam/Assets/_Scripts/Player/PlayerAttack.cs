@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -61,17 +62,19 @@ public class PlayerAttack : MonoBehaviour
     {
         Debug.Log("auuuu");
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, _attackDirection,_attackRange,_attackLayer);
-        Collider2D[] hits = Physics2D.OverlapBoxAll( transform.position + new Vector3(_attackDirection.x*2,0,0), new Vector2(3f,4),0f,_attackLayer);
-
+        Collider2D[] hits = Physics2D.OverlapBoxAll( transform.position + new Vector3(_attackDirection.x*2,0,0), new Vector2(2f,4),0f,_attackLayer);
+        SoundManager.Instance.PlayerOneShot(SoundManager.Sounds.gillWater);
         PlayerChar.CharacterAnimator.SetTrigger("Melee");
         if(hits.Length != 0) 
         {
+            ParticleManager.Instance.SpawnParticleAtLocation(ParticleManager.Instance.BubbleParticle, hits[0].transform.position);
             Debug.Log("Player hit something");
             foreach(var hit in hits) 
             {
                 if (hit.transform.TryGetComponent<IDamageable>(out IDamageable hitObject))
                 {
                     Debug.Log("Damaged");
+                    hit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     hit.GetComponent<Rigidbody2D>().AddForce((hit.transform.position - transform.position).normalized * _meleeAttackForce);
                     hitObject.GetDamage(_damage);
                     
@@ -83,6 +86,8 @@ public class PlayerAttack : MonoBehaviour
 
     void RangedAttack(Vector3 attackLocation) 
     {
+        SoundManager.Instance.PlayerOneShot(SoundManager.Sounds.Gunshot);
+
         PlayerChar.CharacterAnimator.SetTrigger("Ranged");
         Rigidbody2D rb = Instantiate(_projectile,transform.position,Quaternion.identity);
         rb.AddForce((attackLocation-transform.position)*_projectileSpeed);
@@ -90,6 +95,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawCube(transform.position + new Vector3(_attackDirection.x*2, 0, 0), new Vector2(3f, 4));
+        Gizmos.DrawCube(transform.position + new Vector3(_attackDirection.x*2, 0, 0), new Vector2(2f, 4));
     }
 }

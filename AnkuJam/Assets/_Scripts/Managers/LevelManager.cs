@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
 
     public static GameObject Player;
     public Light2D GlobalLight;
+    public CameraShake CamShake;
 
     // Start is called before the first frame update
     void Start()

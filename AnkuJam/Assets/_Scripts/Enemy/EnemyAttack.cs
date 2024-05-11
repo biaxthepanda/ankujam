@@ -11,6 +11,8 @@ public class EnemyAttack : MonoBehaviour
     public float AttackCoolDown;
     public float AttackTimer;
 
+    public EnemyCharacter EnemyChar;
+
     void Start()
     {
         Target = LevelManager.Player.transform;

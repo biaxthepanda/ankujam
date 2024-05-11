@@ -46,6 +46,11 @@ public class SoundManager : MonoBehaviour
         BossFight_2Opening = 17,
         Bossfight_2mid = 18,
         Bossfight_2end = 19,
+        bossDash = 20,
+        damage = 21,
+        deepFatality = 22,
+        doorClose = 23,
+
 
     }
 
