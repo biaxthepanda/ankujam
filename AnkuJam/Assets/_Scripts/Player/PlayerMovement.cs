@@ -57,14 +57,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(movement.magnitude == 0 && lastMovement.magnitude != 0) 
         {
-            SwimmingAudSrc.Stop();
-            Debug.Log("StopSwimming");
-        
+            SwimmingAudSrc.Stop();        
         }
         else if(movement.magnitude != 0 && lastMovement.magnitude == 0) 
         {
             SwimmingAudSrc.Play();
-            Debug.Log("PlaySwimming");
         }
     }
 }
