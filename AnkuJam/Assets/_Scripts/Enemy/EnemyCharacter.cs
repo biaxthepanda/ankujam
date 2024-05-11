@@ -8,7 +8,6 @@ public class EnemyCharacter : Character,IDamageable
 
     public event Action OnEnemyDied;
 
-    public GameObject OwnPrefab;
     // Start is called before the first frame update
     void Start()
     {

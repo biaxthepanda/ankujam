@@ -5,8 +5,9 @@ using UnityEngine;
 public class Character : MonoBehaviour,IDamageable
 {
     public float MaxHealth;
-    public float Health; 
+    public float Health;
 
+    public Animator CharacterAnimator;
 
     void Start()
     {
