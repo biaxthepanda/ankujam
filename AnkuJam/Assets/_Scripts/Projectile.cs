@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
         if(collision.gameObject.layer != LayerMask.NameToLayer(_ownerLayerMask)) 
         {
             Destroy(gameObject);
-            Debug.LogError(collision.gameObject.layer + " " + _ownerLayerMask.ToString());
+            Debug.LogError(collision.name +  " " + LayerMask.LayerToName(collision.gameObject.layer) + " " + LayerMask.NameToLayer(_ownerLayerMask));
         }
 
     }
