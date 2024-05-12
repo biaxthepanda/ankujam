@@ -65,6 +65,7 @@ public class SoundManager : MonoBehaviour
         doorClose = 23,
         explosiveBip= 24,
         playerDash = 25,
+        healthSFX = 26,
         
 
 
