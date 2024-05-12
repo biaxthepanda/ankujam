@@ -37,17 +37,20 @@ public class RoomManager : MonoBehaviour
 
     public void NextRoom() 
     {
-        UIManager.Instance.ToggleLoadingScreen(true,0.3f);
-        if(_currentRoom != null)
-            Destroy(_currentRoom.gameObject);
+        
+        
+        
         _currentRoomIndex++;
-        if(_currentRoomIndex >= Rooms.Length) 
+        if(_currentRoomIndex >= Rooms.Length-1) 
         {
-            Debug.LogWarning("YOU WON");
+            GameObject.Find("LastApproach").GetComponent<LastApproach>().StartAnim();
         }
         else
         {
-           StartCoroutine(SpawnRoomCurrentRoom());
+            if (_currentRoom != null)
+                Destroy(_currentRoom.gameObject);
+            UIManager.Instance.ToggleLoadingScreen(true, 0.3f);
+            StartCoroutine(SpawnRoomCurrentRoom());
         }
     }
 

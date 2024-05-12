@@ -375,8 +375,8 @@ MonoBehaviour:
   - prefabs:
     - {fileID: 8043564688731782061, guid: 7884633fe4a4e0b45a5e4681ca8fdfd9, type: 3}
     - {fileID: 484021294773846568, guid: 4d76d3970a6aafe458a7fbbdcde370d6, type: 3}
-    - {fileID: 126138786653328861, guid: f152cdcbca43c8c4c8b47a5e0b099ff2, type: 3}
-    - {fileID: 126138786653328861, guid: f152cdcbca43c8c4c8b47a5e0b099ff2, type: 3}
+    - {fileID: 4183544810730826368, guid: 4a70e909c28c6244f961a7a4eb90a653, type: 3}
+    - {fileID: 4183544810730826368, guid: 4a70e909c28c6244f961a7a4eb90a653, type: 3}
     - {fileID: 8043564688731782061, guid: 7884633fe4a4e0b45a5e4681ca8fdfd9, type: 3}
     - {fileID: 484021294773846568, guid: 4d76d3970a6aafe458a7fbbdcde370d6, type: 3}
     locations:
@@ -409,6 +409,7 @@ MonoBehaviour:
   - {fileID: 5762066856366972174}
   - {fileID: 416730881191744147}
   - {fileID: 4919700679050555735}
+  _currentWave: 0
   HealthItem: {fileID: 3164821388781267839, guid: 4d9ba1bbf872ef34a825c086f38bd0f5, type: 3}
 --- !u!1 &5857509462521231827
 GameObject:

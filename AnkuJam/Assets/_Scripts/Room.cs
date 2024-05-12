@@ -21,7 +21,7 @@ public class Room : MonoBehaviour
     public Transform Enemies;
     public List<Wave> Waves = new List<Wave>();
     public Transform[] HealthPositions;
-    private int _currentWave = 0;
+    public int _currentWave = 0;
     private int _currentEnemyAmount = 0;
 
     public ExtraHealth HealthItem;

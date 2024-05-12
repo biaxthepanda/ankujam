@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackCoolDown: 0.7
   _attackRange: 3
-  _damage: 30
+  _damage: 1000
   SlashEffect: {fileID: 6830497338064227941, guid: 8cc7aaea62e566a4a96e3887ddd0ab46, type: 3}
   _projectile: {fileID: 3047687754931394232, guid: 74cafb85dbbb79f4fa6b64cfe3fac717, type: 3}
   _projectileSpeed: 100
@@ -288,8 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48032e920ce8699408fdc71954c3986c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  Health: 100
+  MaxHealth: 1000
+  Health: 1000
   SR: {fileID: 0}
   CharacterAnimator: {fileID: 2020640943}
   PlayerLight: {fileID: 1035453211}
