@@ -32,6 +32,87 @@ Transform:
   - {fileID: 9009624158602927987}
   m_Father: {fileID: 3608483568252784746}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &985719821548868989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337776426067238917}
+  - component: {fileID: 3137818581916124949}
+  - component: {fileID: 1891589029468232523}
+  m_Layer: 11
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1337776426067238917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985719821548868989}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7622985507698229994}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3137818581916124949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985719821548868989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c502d0c4b89db1a4686222ed8c3c8242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossAttack: {fileID: 1768925871100049372}
+--- !u!58 &1891589029468232523
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985719821548868989}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07310486, y: -0.18361425}
+  serializedVersion: 2
+  m_Radius: 1.9351497
 --- !u!1 &2267906930882042012
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +139,7 @@ Transform:
   m_GameObject: {fileID: 2267906930882042012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: 0.24, z: 0}
+  m_LocalPosition: {x: -0.24, y: -0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80,7 +161,7 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.97798264, b: 0.642, a: 1}
   m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -98,8 +179,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.00020000339, y: -0.000050008297, z: 0}
-    m_Extent: {x: 0.99759996, y: 0.99785, z: 0}
+    m_Center: {x: -0.000049948692, y: 0.000100016594, z: 0}
+    m_Extent: {x: 2.9296498, y: 2.9299002, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -107,7 +188,7 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 2.43
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: 0.5, y: 0, z: 0}
@@ -152,9 +233,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7622985507698229994}
   - component: {fileID: 1768925871100049372}
+  - component: {fileID: 7084925431261987413}
   - component: {fileID: 2730421970402497413}
   - component: {fileID: 3157574180605846029}
-  - component: {fileID: 7084925431261987413}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
@@ -176,6 +257,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3608483568252784746}
+  - {fileID: 1337776426067238917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1768925871100049372
@@ -190,14 +272,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edb0187454b09743a48d031d9eea479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackRange: 0
+  Target: {fileID: 0}
+  AttackLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  AttackCoolDown: 0
+  AttackTimer: 0
+  EnemyChar: {fileID: 7084925431261987413}
   BossLight: {fileID: 4263563069511245252}
   RB: {fileID: 2730421970402497413}
-  Target: {fileID: 0}
-  DefaultMeleeDamage: 40
-  HighMeleeDamage: 100
+  MeleeDamage: 30
+  DefaultMeleeDamage: 30
+  HighMeleeDamage: 50
   State: 0
   SecondsToWaitBeforeJump: 0.3
-  JumpForce: 400
+  JumpForce: 40000
   SecondsToReArrange: 2
   ReArrangePlaces:
   - {fileID: 0}
@@ -212,9 +302,27 @@ MonoBehaviour:
   BigProjectile: {fileID: 3047687754931394232, guid: 80a72ef67f71f1045884aee6672de4dc, type: 3}
   SecondsToWaitBeforeSmall: 1
   SecondsToWaitBeforeBig: 1
-  ForceSmallProjectile: 400
-  ForceBigProjectile: 700
+  ForceSmallProjectile: 600
+  ForceBigProjectile: 3000
   MaxRangedAmount: 4
+  StunnedSeconds: 5
+--- !u!114 &7084925431261987413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439922607859159614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c1830b813f5fa408685063acde4376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 250
+  Health: 250
+  SR: {fileID: 3897880456926293555}
+  CharacterAnimator: {fileID: 3124707558908365291}
+  EnemyAtt: {fileID: 1768925871100049372}
 --- !u!50 &2730421970402497413
 Rigidbody2D:
   serializedVersion: 4
@@ -227,7 +335,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -277,18 +385,6 @@ CircleCollider2D:
   m_Offset: {x: 0.3426032, y: 0.083800316}
   serializedVersion: 2
   m_Radius: 2.0466042
---- !u!114 &7084925431261987413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439922607859159614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c1830b813f5fa408685063acde4376, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6689173569018108047
 GameObject:
   m_ObjectHideFlags: 0

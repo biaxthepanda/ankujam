@@ -3,18 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class BossCharacter : IDamageable
+public class BossCharacter : EnemyCharacter,IDamageable
 {
 
-    public float Health;
-    public void GetDamage(int damage)
-    {
-        Health -= damage;
-        if(Health<= 0) 
-        {
-            Die();   
-        }
-    }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +20,4 @@ public class BossCharacter : IDamageable
         
     }
 
-    void Die() 
-    {
-    
-    }
 }

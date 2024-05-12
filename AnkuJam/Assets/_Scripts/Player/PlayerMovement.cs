@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private float _dashTimer;
     private bool _dashed = false;
 
-    public GameObject DashEffect;
 
     public SpriteRenderer SR;
     public Animator PlayerAnimator;
@@ -71,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         if(_dashTimer <= 0) 
         {
             _dashed = true;
-            DashEffect.SetActive(true);
+
             Debug.Log("DASHED");
             _rb.AddForce(_movement.normalized * DashForce,ForceMode2D.Impulse);
             StartCoroutine(ResetDash());
@@ -94,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ResetDash() 
     {
         yield return new WaitForSeconds(0.4f);
-        DashEffect.SetActive(false);
 
         _dashed = false;
     }
