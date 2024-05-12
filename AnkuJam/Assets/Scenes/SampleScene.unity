@@ -435,10 +435,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rooms:
-  - {fileID: 5461881422232334647, guid: 9d48041682059da419e555381758f4b5, type: 3}
   - {fileID: 5461881422232334647, guid: 6e3f685847e68b445bfe31d64db8f134, type: 3}
   - {fileID: 5461881422232334647, guid: 75ab280ae9ad4b04a98fa823f31a5bdf, type: 3}
   - {fileID: 5461881422232334647, guid: 9ab8827c1533b3740a68fd29a4d072fd, type: 3}
+  - {fileID: 5461881422232334647, guid: 9d48041682059da419e555381758f4b5, type: 3}
   Player: {fileID: 0}
 --- !u!1 &146955587
 GameObject:
