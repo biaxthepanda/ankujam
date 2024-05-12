@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 LastMovement;
     public float LastHorizontalMovement = 1;
 
+    public float DashForce;
+    public float DashCoolDown;
+    private float _dashTimer;
+    private bool _dashed = false;
+
+
     public SpriteRenderer SR;
     public Animator PlayerAnimator;
 
@@ -28,13 +34,22 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         _movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+
+        _dashTimer -= Time.deltaTime;
+
+
         IsMovementChanged(_movement,LastMovement);
-        //if (_movement.magnitude != 0)
+        
             LastMovement = _movement;
         if (_movement.x != 0) 
         {
             LastHorizontalMovement = _movement.normalized.x;
             SR.flipX = LastHorizontalMovement > 0 ? false : true;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift)) 
+        {
+            Dash();
         }
             
         PlayerAnimator.SetFloat("Speed",_rb.velocity.magnitude);
@@ -43,14 +58,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = _movement * Speed;
+        if(_dashed == false) 
+        {
+            _rb.velocity = _movement * Speed;
+        }
     }
 
 
-    private void AccelerateToSpeed(float maxSpeed, float acceleration) 
+    private void Dash() 
     {
-            
-    
+        if(_dashTimer <= 0) 
+        {
+            _dashed = true;
+
+            Debug.Log("DASHED");
+            _rb.AddForce(_movement.normalized * DashForce,ForceMode2D.Impulse);
+            StartCoroutine(ResetDash());
+            _dashTimer = DashCoolDown;
+        }
     }
 
     private void IsMovementChanged(Vector2 movement,Vector2 lastMovement) 
@@ -63,5 +88,12 @@ public class PlayerMovement : MonoBehaviour
         {
             SwimmingAudSrc.Play();
         }
+    }
+
+    IEnumerator ResetDash() 
+    {
+        yield return new WaitForSeconds(0.4f);
+
+        _dashed = false;
     }
 }

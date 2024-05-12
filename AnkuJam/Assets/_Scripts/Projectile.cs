@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour ,IDamageable
 {
     [SerializeField] private int _damage;
     [SerializeField] private string _attackLayerMask;
@@ -29,5 +29,10 @@ public class Projectile : MonoBehaviour
             Debug.LogError(collision.name +  " " + LayerMask.LayerToName(collision.gameObject.layer) + " " + LayerMask.NameToLayer(_ownerLayerMask));
         }
 
+    }
+
+    public void GetDamage(int damage)
+    {
+        Destroy(gameObject);
     }
 }

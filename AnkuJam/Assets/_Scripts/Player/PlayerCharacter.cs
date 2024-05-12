@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerCharacter : Character
 {
-    public static Action PlayerDied;
+    public static Action OnPlayerDied;
     public Light2D PlayerLight;
 
     void Start()
@@ -27,7 +27,7 @@ public class PlayerCharacter : Character
         Health -= damage;
         if(Health<= 0) 
         {
-            PlayerDied?.Invoke();
+            OnPlayerDied?.Invoke();
         }
         UIManager.Instance.UpdateHealthBar(Health, MaxHealth);
         CharacterAnimator.SetTrigger("Hit");

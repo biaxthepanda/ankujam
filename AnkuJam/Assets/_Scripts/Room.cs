@@ -14,6 +14,8 @@ public class Wave
 
 public class Room : MonoBehaviour
 {
+    public RoomManager RoomManager;
+
     public Transform Enemies;
     public List<Wave> Waves = new List<Wave>();
     private int _currentWave = 0;

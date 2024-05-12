@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.52, y: 0.35, z: 0}
-  m_LocalScale: {x: 2.4291835, y: 2.4291835, z: 2.4291835}
+  m_LocalScale: {x: 3.4941375, y: 3.4941375, z: 3.4941375}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -122,9 +122,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.041465394, y: 0.029618148}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.41706952
 --- !u!50 &3609861502019602661
 Rigidbody2D:
   serializedVersion: 4
@@ -207,7 +207,7 @@ MonoBehaviour:
   AttackCoolDown: 2
   AttackTimer: 0
   EnemyChar: {fileID: 5536603940714329388}
-  Damage: 15
+  Damage: 10
 --- !u!95 &6352980352337936443
 Animator:
   serializedVersion: 5

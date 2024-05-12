@@ -12,6 +12,7 @@ public class RangedEnemyAttack : EnemyAttack
     {
         if (AttackTimer < 0)
         {
+            EnemyChar.CharacterAnimator.SetTrigger("Attack");
             Rigidbody2D rb = Instantiate(Projectile, transform.position, Quaternion.identity);
             rb.AddForce((Target.position - transform.position) * ProjectileSpeed);
 

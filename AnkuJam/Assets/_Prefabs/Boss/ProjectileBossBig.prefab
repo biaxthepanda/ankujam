@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b2a3c8bee82c9458e9380b37f04beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Seconds: 3
+  Seconds: 8
 --- !u!50 &3047687754931394232
 Rigidbody2D:
   serializedVersion: 4
@@ -5006,9 +5006,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1755671945
+  m_SortingLayer: 1
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
