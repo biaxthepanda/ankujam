@@ -31,6 +31,7 @@ public class RoomManager : MonoBehaviour
     void Start()
     {
         Player = LevelManager.Player.GetComponent<PlayerCharacter>();
+        SoundManager.Instance.PlayMusic(SoundManager.Musics.Fight);
         NextRoom();
     }
 
@@ -51,13 +52,15 @@ public class RoomManager : MonoBehaviour
     public void FailedRoom() 
     {
         Destroy(_currentRoom.gameObject);
+        UIManager.Instance.ToggleLoadingScreen(true, 0.3f);
         StartCoroutine(StartRoomAgain());
     }
 
 
     IEnumerator StartRoomAgain()
     {
-        yield return new WaitForSeconds(3f);
+        LevelManager.Instance.ToggleGlobalLight(true, 0.1f);
+        yield return new WaitForSeconds(1f);
         Player.transform.position = Vector2.zero;
         StartCoroutine(SpawnRoomCurrentRoom());
         Player.ResetPlayer();
@@ -67,6 +70,7 @@ public class RoomManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
+        UIManager.Instance.ToggleLoadingScreen(false, 0.3f);
         Player.ResetPlayer();
         SoundManager.Instance.PlayOneShot(SoundManager.Sounds.doorClose);
         _currentRoom = Instantiate(Rooms[_currentRoomIndex], Vector3.zero, Quaternion.identity);

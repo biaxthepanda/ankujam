@@ -11,7 +11,12 @@ public class BossCharacter : EnemyCharacter,IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        
+        UIManager.Instance.ToggleBossHealth(true);
+    }
+
+    private void OnDestroy()
+    {
+        UIManager.Instance.ToggleBossHealth(false);
     }
 
     // Update is called once per frame
@@ -19,5 +24,9 @@ public class BossCharacter : EnemyCharacter,IDamageable
     {
         
     }
-
+    public override void GetDamage(int damage)
+    {
+        base.GetDamage(damage);
+        UIManager.Instance.UpdateBossHealthBar(Health/MaxHealth);
+    }
 }

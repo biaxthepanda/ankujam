@@ -99,6 +99,7 @@ public class BossAttack : EnemyAttack
                 StartCoroutine(WaitStunned());
                 break;
             case BossStates.Start:
+                SoundManager.Instance.PlayMusic(SoundManager.Musics.finalBossStun);
                 DOVirtual.DelayedCall(2f,()=> SwitchBossState(BossStates.Ranged));
                 break;
 

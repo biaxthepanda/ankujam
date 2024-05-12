@@ -301,6 +301,7 @@ MonoBehaviour:
     - {fileID: 5377209200461274288}
     - {fileID: 1089851587538199089}
     CoolDown: 0
+  HealthPositions: []
   HealthItem: {fileID: 0}
 --- !u!1 &5810901030455669293
 GameObject:
@@ -621,7 +622,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 20e65725f9d1854458c1e985b841117e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 125d1f4ac503f334e8fbd146b798e475, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
