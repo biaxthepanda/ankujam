@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
             DashIcon.gameObject.SetActive(false);
             Debug.Log("DASHED");
             _rb.AddForce(_movement.normalized * DashForce,ForceMode2D.Impulse);
+            SoundManager.Instance.PlayOneShot(SoundManager.Sounds.playerDash);
             StartCoroutine(ResetDash());
             _dashTimer = DashCoolDown;
         }
