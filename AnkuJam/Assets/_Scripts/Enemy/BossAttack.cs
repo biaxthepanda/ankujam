@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -52,8 +53,7 @@ public class BossAttack : EnemyAttack
         }
         Target = LevelManager.Player.transform;
         MeleeDamage = DefaultMeleeDamage;
-        State = BossStates.Melee;
-        StartCoroutine(MeleeAttack());
+        SwitchBossState(BossStates.Start);
     }
 
     // Update is called once per frame
@@ -64,16 +64,17 @@ public class BossAttack : EnemyAttack
 
     public enum BossStates 
     {
-        Roaming,
+        Stunned,
         Death,
         Melee,
-        Ranged
+        Ranged,
+        Start
     }
 
     IEnumerator MeleeAttack() 
     {
         yield return new WaitForSeconds(2f);
-        LevelManager.Instance.ToggleGlobalLight(false,2f);
+        LevelManager.Instance.ToggleGlobalLight(false,1f);
         LevelManager.Player.GetComponent<PlayerCharacter>().TogglePlayerLight(true);
         StartCoroutine(JumpToPlayer());
     }
@@ -85,23 +86,31 @@ public class BossAttack : EnemyAttack
         {
             case BossStates.Melee:
                 _currentJumpAmount = 0;
+                SoundManager.Instance.PlayMusic(SoundManager.Musics.BossFight2);
                 StartCoroutine(MeleeAttack());
                 break;
             case BossStates.Ranged:
                 _currentRangedAmount = 0;
                 RandomRangeAttack();
                 break;
-            case BossStates.Roaming:
+            case BossStates.Stunned:
+                SoundManager.Instance.PlayMusic(SoundManager.Musics.finalBossStun);
+                EnemyChar.CharacterAnimator.SetTrigger("Stun");
                 StartCoroutine(WaitStunned());
+                break;
+            case BossStates.Start:
+                DOVirtual.DelayedCall(2f,()=> SwitchBossState(BossStates.Ranged));
                 break;
 
 
         }
     }
 
+
     IEnumerator WaitStunned() 
     {
         yield return new WaitForSeconds(StunnedSeconds);
+        EnemyChar.CharacterAnimator.SetTrigger("UnStun");
         SwitchBossState(BossStates.Ranged);
     }
 
@@ -116,13 +125,14 @@ public class BossAttack : EnemyAttack
         EnemyChar.CharacterAnimator.SetTrigger("Dash");
         MeleeDamage = HighMeleeDamage;
         RB.AddForce((Target.position-transform.position).normalized*JumpForce);
+        SoundManager.Instance.PlayOneShot(SoundManager.Sounds.bossDash);
         yield return new WaitForSeconds(3);
 
         EnemyChar.CharacterAnimator.SetTrigger("StopDash");
         _currentJumpAmount++;
         if(_currentJumpAmount >= MaxJumpAmount) 
         {
-            SwitchBossState(BossStates.Roaming);
+            SwitchBossState(BossStates.Stunned);
             LevelManager.Instance.ToggleGlobalLight(true, 2f);
             BossLight.intensity = 0;
             LevelManager.Player.GetComponent<PlayerCharacter>().TogglePlayerLight(false);
@@ -144,17 +154,7 @@ public class BossAttack : EnemyAttack
         StartCoroutine(JumpToPlayer());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
-
+   
     //Ranged
     void RandomRangeAttack() 
     {
@@ -182,7 +182,7 @@ public class BossAttack : EnemyAttack
         Instantiate(SmallProjectile, LightTransform.position, Quaternion.identity).AddForce((target.position + new Vector3(0, -2f, 0) - transform.position).normalized * ForceSmallProjectile);
         Instantiate(SmallProjectile, LightTransform.position, Quaternion.identity).AddForce((target.position + new Vector3(0, 4f, 0) - transform.position).normalized * ForceSmallProjectile);
         Instantiate(SmallProjectile, LightTransform.position, Quaternion.identity).AddForce((target.position + new Vector3(0, -4f, 0) - transform.position).normalized * ForceSmallProjectile);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.8f);
         DecideRangedStage();
     }
 

@@ -282,11 +282,11 @@ MonoBehaviour:
   EnemyChar: {fileID: 7084925431261987413}
   BossLight: {fileID: 4263563069511245252}
   RB: {fileID: 2730421970402497413}
-  MeleeDamage: 30
-  DefaultMeleeDamage: 30
-  HighMeleeDamage: 50
+  MeleeDamage: 20
+  DefaultMeleeDamage: 20
+  HighMeleeDamage: 20
   State: 0
-  SecondsToWaitBeforeJump: 0.3
+  SecondsToWaitBeforeJump: 0.7
   JumpForce: 40000
   SecondsToReArrange: 2
   ReArrangePlaces:
@@ -300,12 +300,12 @@ MonoBehaviour:
   LightTransform: {fileID: 7812872609616198518}
   SmallProjectile: {fileID: 3047687754931394232, guid: 0e76bda720f156b48ab788a12e50f164, type: 3}
   BigProjectile: {fileID: 3047687754931394232, guid: 80a72ef67f71f1045884aee6672de4dc, type: 3}
-  SecondsToWaitBeforeSmall: 1
-  SecondsToWaitBeforeBig: 1
+  SecondsToWaitBeforeSmall: 0.8
+  SecondsToWaitBeforeBig: 0.8
   ForceSmallProjectile: 600
-  ForceBigProjectile: 3000
-  MaxRangedAmount: 4
-  StunnedSeconds: 5
+  ForceBigProjectile: 30000
+  MaxRangedAmount: 8
+  StunnedSeconds: 10
 --- !u!114 &7084925431261987413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,8 +318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c1830b813f5fa408685063acde4376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 250
-  Health: 250
+  MaxHealth: 500
+  Health: 500
   SR: {fileID: 3897880456926293555}
   CharacterAnimator: {fileID: 3124707558908365291}
   EnemyAtt: {fileID: 1768925871100049372}

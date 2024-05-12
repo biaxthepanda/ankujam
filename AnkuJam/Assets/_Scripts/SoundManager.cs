@@ -8,6 +8,9 @@ public class SoundManager : MonoBehaviour
     #region Singleton
     public static SoundManager Instance { get; private set; }
     public AudioSource AudSrc;
+    public AudioSource MusicSrc;
+
+
 
     private void Awake()
     {
@@ -23,6 +26,16 @@ public class SoundManager : MonoBehaviour
     #endregion
 
     public AudioClip[] AudioClips;
+    public AudioClip[] MusicClips;
+
+    public enum Musics 
+    {
+        Fight,
+        BossFight1,
+        BossFight2,
+        MainMenu,
+        finalBossStun
+    }
 
     public enum Sounds 
     {
@@ -51,6 +64,7 @@ public class SoundManager : MonoBehaviour
         deepFatality = 22,
         doorClose = 23,
         explosiveBip= 24,
+        
 
 
     }
@@ -58,6 +72,15 @@ public class SoundManager : MonoBehaviour
     public void PlayOneShot(Sounds sound) 
     {
         AudSrc.PlayOneShot(AudioClips[(int)sound]);
+    }
+
+    public void PlayMusic(Musics music) 
+    {
+        MusicSrc.Stop();
+        MusicSrc.clip = MusicClips[(int)music];
+        MusicSrc.Play();
+
+
     }
 
 }

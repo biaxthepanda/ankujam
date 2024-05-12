@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  StartFollowingRange: 10
+  StartFollowingRange: 15
   RB: {fileID: 3609861502019602661}
-  Speed: 3.5
+  Speed: 2
   ShouldMoveToPlayer: 1
   AttackEnemy: {fileID: 8315335649551775716}
 --- !u!114 &5536603940714329388
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc75f51ee0e4c4e489cf648ca4500b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 2
+  AttackRange: 3.5
   Target: {fileID: 0}
   AttackLayerMask:
     serializedVersion: 2

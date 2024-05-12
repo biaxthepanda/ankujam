@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.52, y: 0.35, z: 0}
-  m_LocalScale: {x: 1.5869, y: 1.5869, z: 1.5869}
+  m_LocalScale: {x: 3.0232031, y: 3.0232031, z: 3.0232031}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1333146743438389885}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  StartFollowingRange: 10
+  StartFollowingRange: 15
   RB: {fileID: 505581031212978139}
   Speed: 2
   ShouldMoveToPlayer: 1
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804b3e7458126e4ca66383ee31ad375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 4
+  AttackRange: 8
   Target: {fileID: 0}
   AttackLayerMask:
     serializedVersion: 2
@@ -210,7 +210,7 @@ MonoBehaviour:
   EnemyChar: {fileID: 7606773673430922340}
   Damage: 50
   IsAttacked: 0
-  ExplosiveRange: 6
+  ExplosiveRange: 8
   ExplosiveDelay: 1.5
   DangerZone: {fileID: 5300212534148127257}
 --- !u!95 &8591646855968347349
@@ -262,7 +262,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.322845, y: 7.322845, z: 7.322845}
+  m_LocalScale: {x: 3.8018014, y: 3.8018014, z: 3.8018014}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6325018269623124763}
