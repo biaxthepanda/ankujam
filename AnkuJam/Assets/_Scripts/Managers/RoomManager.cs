@@ -37,6 +37,9 @@ public class RoomManager : MonoBehaviour
 
     public void NextRoom() 
     {
+        UIManager.Instance.ToggleLoadingScreen(true,0.3f);
+        if(_currentRoom != null)
+            Destroy(_currentRoom.gameObject);
         _currentRoomIndex++;
         if(_currentRoomIndex >= Rooms.Length) 
         {

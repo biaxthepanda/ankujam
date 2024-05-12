@@ -207,7 +207,7 @@ MonoBehaviour:
   AttackCoolDown: 2
   AttackTimer: 0
   EnemyChar: {fileID: 5536603940714329388}
-  Damage: 10
+  Damage: 5
 --- !u!95 &6352980352337936443
 Animator:
   serializedVersion: 5

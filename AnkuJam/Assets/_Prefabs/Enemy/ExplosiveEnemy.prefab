@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8b3da98a326bc4690da149a304d969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 60
-  Health: 60
+  MaxHealth: 40
+  Health: 40
   SR: {fileID: 1946467961225464198}
   CharacterAnimator: {fileID: 8591646855968347349}
   EnemyAtt: {fileID: 9108797938639727451}
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804b3e7458126e4ca66383ee31ad375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 8
+  AttackRange: 6
   Target: {fileID: 0}
   AttackLayerMask:
     serializedVersion: 2

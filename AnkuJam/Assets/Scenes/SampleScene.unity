@@ -267,7 +267,7 @@ MonoBehaviour:
   _damage: 30
   SlashEffect: {fileID: 6830497338064227941, guid: 8cc7aaea62e566a4a96e3887ddd0ab46, type: 3}
   _projectile: {fileID: 3047687754931394232, guid: 74cafb85dbbb79f4fa6b64cfe3fac717, type: 3}
-  _projectileSpeed: 80
+  _projectileSpeed: 100
   _rangedAttackCoolDown: 2
   RangedCooldownImage: {fileID: 1098386571}
   _movement: {fileID: 47063899}
@@ -435,10 +435,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rooms:
-  - {fileID: 5461881422232334647, guid: 9d48041682059da419e555381758f4b5, type: 3}
   - {fileID: 5461881422232334647, guid: 6e3f685847e68b445bfe31d64db8f134, type: 3}
   - {fileID: 5461881422232334647, guid: 75ab280ae9ad4b04a98fa823f31a5bdf, type: 3}
   - {fileID: 5461881422232334647, guid: 9ab8827c1533b3740a68fd29a4d072fd, type: 3}
+  - {fileID: 5461881422232334647, guid: 9d48041682059da419e555381758f4b5, type: 3}
   Player: {fileID: 0}
 --- !u!1 &146955587
 GameObject:
@@ -670,7 +670,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &321590568
 RectTransform:
@@ -1647,6 +1647,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f726d5aefa93a86499e734d6dbdc5711, type: 3}
   - {fileID: 8300000, guid: a3e02fa9f564b624a8e64845c7fea78c, type: 3}
   - {fileID: 8300000, guid: 7cc4d89e0246ef1498711a08028a4c88, type: 3}
+  - {fileID: 8300000, guid: db228eba62ec2d840b9dde815c029cd6, type: 3}
+  - {fileID: 8300000, guid: 97c7b42fb862a4945b48716d7b40b550, type: 3}
   MusicClips:
   - {fileID: 8300000, guid: 793c92312f145bd4595e7dd5c0a1345b, type: 3}
   - {fileID: 8300000, guid: 504e0d2b40902714d9f6796eedf45ac2, type: 3}
@@ -1839,7 +1841,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.28, y: -0.09, z: 0}
-  m_LocalScale: {x: 2.2399616, y: 2.2399616, z: 2.2399616}
+  m_LocalScale: {x: 2.4617178, y: 2.4617178, z: 2.4617178}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 47063896}
@@ -2827,7 +2829,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2663509786339148708, guid: 4259f6b3a3b548541a2c6e32a10e35a1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0

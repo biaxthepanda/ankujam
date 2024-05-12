@@ -30,7 +30,7 @@ public class PlayerCharacter : Character
         {
             IsDead = true;
             SoundManager.Instance.PlayOneShot(SoundManager.Sounds.deathMusic);
-            ExpressionManager.Instance.CreateExpression("YOU FAILED",Color.red,2f);
+            ExpressionManager.Instance.CreateExpression("YOU'RE FIRED!",Color.red,2f);
             OnPlayerDied?.Invoke();
             RoomManager.Instance.FailedRoom();
         }

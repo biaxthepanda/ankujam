@@ -23,12 +23,16 @@ public class Projectile : MonoBehaviour ,IDamageable
             }
             
         }
-        
+        if(collision.gameObject.layer != LayerMask.NameToLayer(_ownerLayerMask) && collision.gameObject.layer != gameObject.layer) 
+        {
+            Destroy(gameObject);
+            Debug.LogError(collision.name +  " " + LayerMask.LayerToName(collision.gameObject.layer) + " " + LayerMask.NameToLayer(_ownerLayerMask));
+        }
 
     }
 
     public void GetDamage(int damage)
     {
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
