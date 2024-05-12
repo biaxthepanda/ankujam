@@ -58,7 +58,8 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        RangedCooldownImage.fillAmount = (_rangedAttackCoolDown - Mathf.Clamp(_rangedAttackTimer,0,_rangedAttackCoolDown+0.1f)) / _rangedAttackCoolDown;
+        RangedCooldownImage.fillAmount = Mathf.Clamp(_rangedAttackTimer,0,_rangedAttackCoolDown+0.1f) / _rangedAttackCoolDown;
+        RangedAttackShowerToggle();
 
         _attackTimer -= Time.deltaTime;
         _rangedAttackTimer -= Time.deltaTime;
@@ -108,6 +109,11 @@ public class PlayerAttack : MonoBehaviour
         rb.AddForce((attackLocation-transform.position)*_projectileSpeed);
     }
 
+    private void RangedAttackShowerToggle()
+    {
+        if (_rangedAttackTimer <= 0 && RangedCooldownImage.gameObject.activeInHierarchy) RangedCooldownImage.gameObject.SetActive(false);
+        if (_rangedAttackTimer > 0 && !RangedCooldownImage.gameObject.activeInHierarchy) RangedCooldownImage.gameObject.SetActive(true);
+    }
     private void OnDrawGizmos()
     {
         Gizmos.DrawCube(transform.position + new Vector3(_attackDirection.x*2, 0, 0), new Vector2(2f, 4));

@@ -8,6 +8,7 @@ public class PlayerCharacter : Character
 {
     public static Action OnPlayerDied;
     public Light2D PlayerLight;
+    public bool IsDead = false;
 
     void Start()
     {
@@ -25,9 +26,13 @@ public class PlayerCharacter : Character
         LevelManager.Instance.CamShake.ShakeCamera(3,0.1f);
         SoundManager.Instance.PlayOneShot(SoundManager.Sounds.damage);
         Health -= damage;
-        if(Health<= 0) 
+        if(Health<= 0 && !IsDead) 
         {
+            IsDead = true;
+            SoundManager.Instance.PlayOneShot(SoundManager.Sounds.deathMusic);
+            ExpressionManager.Instance.CreateExpression("YOU FAILED",Color.red,2f);
             OnPlayerDied?.Invoke();
+            RoomManager.Instance.FailedRoom();
         }
         UIManager.Instance.UpdateHealthBar(Health, MaxHealth);
         CharacterAnimator.SetTrigger("Hit");
@@ -46,4 +51,17 @@ public class PlayerCharacter : Character
         }
     
     }
-}
+
+    public void ResetPlayer() 
+    {
+        IsDead = false;
+        Health = MaxHealth;
+        UIManager.Instance.UpdateHealthBar(Health, MaxHealth);
+    }
+
+    public void AdjustHealth(float amount) 
+    {
+        Health += amount;
+        UIManager.Instance.UpdateHealthBar(Health, MaxHealth);
+    }
+}   

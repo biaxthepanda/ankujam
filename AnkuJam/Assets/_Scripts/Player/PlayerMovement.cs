@@ -17,10 +17,10 @@ public class PlayerMovement : MonoBehaviour
     private float _dashTimer;
     private bool _dashed = false;
 
-
+    public PlayerCharacter PlayerChar;
     public SpriteRenderer SR;
     public Animator PlayerAnimator;
-
+    public SpriteRenderer DashIcon;
 
     public AudioSource SwimmingAudSrc;
 
@@ -33,11 +33,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerChar.Health <= 0) return;
+
         _movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
 
         _dashTimer -= Time.deltaTime;
-
+        if(_dashTimer <= 0) 
+        {
+            UIManager.Instance.ToggleDashImage(true);
+            DashIcon.gameObject.SetActive(true);
+        }
 
         IsMovementChanged(_movement,LastMovement);
         
@@ -70,9 +76,11 @@ public class PlayerMovement : MonoBehaviour
         if(_dashTimer <= 0) 
         {
             _dashed = true;
-
+            UIManager.Instance.ToggleDashImage(false);
+            DashIcon.gameObject.SetActive(false);
             Debug.Log("DASHED");
             _rb.AddForce(_movement.normalized * DashForce,ForceMode2D.Impulse);
+            SoundManager.Instance.PlayOneShot(SoundManager.Sounds.playerDash);
             StartCoroutine(ResetDash());
             _dashTimer = DashCoolDown;
         }

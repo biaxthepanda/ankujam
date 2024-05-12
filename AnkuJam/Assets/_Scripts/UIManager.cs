@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     #endregion
 
     public Image HealthBarImage;
+    public Image DashImage;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +40,10 @@ public class UIManager : MonoBehaviour
     public void UpdateHealthBar(float health,float maxhealth) 
     {
         HealthBarImage.fillAmount = health / maxhealth;
+    }
+
+    public void ToggleDashImage(bool isOpen) 
+    {
+        DashImage.gameObject.SetActive(isOpen);
     }
 }

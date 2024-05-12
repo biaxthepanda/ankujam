@@ -16,15 +16,19 @@ public class Room : MonoBehaviour
 {
     public RoomManager RoomManager;
 
+    public float SecondsBetweenWaves;
+
     public Transform Enemies;
     public List<Wave> Waves = new List<Wave>();
+    public Transform[] HealthPositions;
     private int _currentWave = 0;
     private int _currentEnemyAmount = 0;
 
+    public ExtraHealth HealthItem;
 
     void Start()
     {
-        SpawnWave(0);
+        StartCoroutine(SpawnWave(_currentWave));
     }
 
     // Update is called once per frame
@@ -33,8 +37,10 @@ public class Room : MonoBehaviour
         
     }
 
-    public void SpawnWave(int waveIdx) 
+    public IEnumerator SpawnWave(int waveIdx) 
     {
+        yield return new WaitForSeconds(SecondsBetweenWaves);
+        ExpressionManager.Instance.CreateExpression("WAVE " + (_currentWave+1).ToString()+"/"+Waves.Count.ToString(),Color.white,1f,125);
         _currentEnemyAmount = Waves[waveIdx].prefabs.Count;
         List<Transform> locationsTemp = Waves[waveIdx].locations;
         foreach (var objectToSpawn in Waves[waveIdx].prefabs) 
@@ -55,15 +61,26 @@ public class Room : MonoBehaviour
         {
             if(_currentWave < Waves.Count-1) 
             {
-                SpawnWave(_currentWave);
                 _currentWave++;
-        
+                SpawnHealths();
+                StartCoroutine(SpawnWave(_currentWave));
+
+
             }
             else 
             {
-                Debug.Log("OPEN DOORS");
+                RoomManager.NextRoom();
             
             }
+        }
+    }
+
+    private void SpawnHealths() 
+    {
+        int amount = Random.Range(0,4);
+        for(int i = 0; i < amount; i++) 
+        {
+            Instantiate(HealthItem, HealthPositions[Random.Range(0, HealthPositions.Length - 1)]);
         }
     }
 }

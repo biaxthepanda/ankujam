@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
+    #region Singleton
+    public static RoomManager Instance { get; private set; }
+
+
+
+    private void Awake()
+    {
+        // Bir örnek varsa ve ben deðilse, yoket.
+
+        if (Instance != null && Instance != this)
+        {
+            return;
+        }
+        Instance = this;
+    }
+
+    #endregion
 
     public Room[] Rooms;
     private Room _currentRoom;
@@ -13,7 +30,6 @@ public class RoomManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerCharacter.OnPlayerDied += FailedRoom;
         Player = LevelManager.Player.GetComponent<PlayerCharacter>();
         NextRoom();
     }
@@ -21,8 +37,16 @@ public class RoomManager : MonoBehaviour
     public void NextRoom() 
     {
         _currentRoomIndex++;
-        SpawnRoomCurrentRoom();
+        if(_currentRoomIndex >= Rooms.Length) 
+        {
+            Debug.LogWarning("YOU WON");
+        }
+        else
+        {
+           StartCoroutine(SpawnRoomCurrentRoom());
+        }
     }
+
 
     public void FailedRoom() 
     {
@@ -33,14 +57,21 @@ public class RoomManager : MonoBehaviour
 
     IEnumerator StartRoomAgain()
     {
-        yield return new WaitForSeconds(2f);
-        SpawnRoomCurrentRoom();
+        yield return new WaitForSeconds(3f);
+        Player.transform.position = Vector2.zero;
+        StartCoroutine(SpawnRoomCurrentRoom());
+        Player.ResetPlayer();
     }
 
-    private void SpawnRoomCurrentRoom() 
+    IEnumerator SpawnRoomCurrentRoom() 
     {
+        yield return new WaitForSeconds(2f);
+
+        Player.ResetPlayer();
+        SoundManager.Instance.PlayOneShot(SoundManager.Sounds.doorClose);
         _currentRoom = Instantiate(Rooms[_currentRoomIndex], Vector3.zero, Quaternion.identity);
         _currentRoom.RoomManager = this;
+        ExpressionManager.Instance.CreateExpression("FLOOR: " + (_currentRoomIndex+1).ToString(),Color.white,2f);
     }
 
 }
