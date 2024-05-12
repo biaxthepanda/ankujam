@@ -64,6 +64,7 @@ public class SoundManager : MonoBehaviour
         deepFatality = 22,
         doorClose = 23,
         explosiveBip= 24,
+        playerDash = 25,
         
 
 
