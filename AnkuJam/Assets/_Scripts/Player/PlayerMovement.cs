@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             LastHorizontalMovement = _movement.normalized.x;
             SR.flipX = LastHorizontalMovement > 0 ? false : true;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift)) 
+        if (Input.GetButtonDown("Jump")) 
         {
             Dash();
         }

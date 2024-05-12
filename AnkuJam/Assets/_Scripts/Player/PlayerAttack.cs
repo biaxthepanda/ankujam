@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetButtonDown("Fire1")) 
         {
             if (_attackTimer < 0) 
             {
@@ -49,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
                 _attackTimer = _attackCoolDown;
             }
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetButtonDown("Fire2"))
         {
             if (_rangedAttackTimer < 0)
             {
