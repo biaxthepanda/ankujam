@@ -90,6 +90,7 @@ public class BossAttack : EnemyAttack
                 StartCoroutine(MeleeAttack());
                 break;
             case BossStates.Ranged:
+                SoundManager.Instance.PlayMusic(SoundManager.Musics.BossFight1);
                 _currentRangedAmount = 0;
                 RandomRangeAttack();
                 break;
@@ -99,7 +100,6 @@ public class BossAttack : EnemyAttack
                 StartCoroutine(WaitStunned());
                 break;
             case BossStates.Start:
-                SoundManager.Instance.PlayMusic(SoundManager.Musics.finalBossStun);
                 DOVirtual.DelayedCall(2f,()=> SwitchBossState(BossStates.Ranged));
                 break;
 
@@ -191,7 +191,7 @@ public class BossAttack : EnemyAttack
     {
         yield return new WaitForSeconds(SecondsToWaitBeforeBig);
         FacePlayer();
-        Instantiate(BigProjectile, LightTransform.position, Quaternion.identity).AddForce((target.position - transform.position).normalized * ForceSmallProjectile);
+        Instantiate(BigProjectile, LightTransform.position, Quaternion.identity).AddForce((target.position - transform.position).normalized * ForceBigProjectile);
         yield return new WaitForSeconds(0.3f);
         DecideRangedStage();
     }

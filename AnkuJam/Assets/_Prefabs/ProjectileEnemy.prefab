@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994076366f6587b47a381b1262450337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 15
+  _damage: 10
   _attackLayerMask: Player
   _ownerLayerMask: Enemy
 --- !u!114 &1656717021061306961

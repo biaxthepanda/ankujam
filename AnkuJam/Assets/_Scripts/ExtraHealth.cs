@@ -24,6 +24,7 @@ public class ExtraHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) 
         {
             collision.GetComponent<PlayerCharacter>().AdjustHealth(HealthAmount);
+            SoundManager.Instance.PlayOneShot(SoundManager.Sounds.healthSFX);
             Destroy(gameObject);
         }
     }
